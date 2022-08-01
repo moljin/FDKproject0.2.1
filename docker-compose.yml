@@ -7,13 +7,11 @@ services:
     volumes:
       - type: volume
         source: static-volume
-        target: /home/moljin/FDKproject0.1/flask/static
+        target: /home/moljin/FDKproject0.2.1/flask_www/static
     restart: always
-    build: /home/moljin/FDKproject0.1/flask
+    build: /home/moljin/FDKproject0.2.1/flask_www
     ports:
       - "5000:5000"
-    depends_on:
-      - mysql
     command: gunicorn -w 1 -b 0.0.0.0:5000 app:app
 
   nginx:
@@ -23,7 +21,7 @@ services:
         source: static-volume
         target: /data/static
     restart: always
-    build: /home/moljin/FDKproject0.1/nginx
+    build: /home/moljin/FDKproject0.2.1/nginx
     ports:
       - "50808:80"
     depends_on:
@@ -31,4 +29,3 @@ services:
 
 volumes:
   static-volume:
-  mysqldb-volume:
