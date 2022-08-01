@@ -5,7 +5,7 @@ RUN echo "testing3"
 
 # github에서 내려받는 작업: 내려받으면 FDKproject0.1폴더가 만들어진다.
 WORKDIR /home/moljin/
-RUN git clone https://github.com/moljin/FDKproject0.1.git
+RUN git clone https://github.com/moljin/FDKproject0.2.1.git
 
 # 만들어진 FDKproject0.1 폴더에서 작업
 WORKDIR /home/moljin/FDKproject0.2.1/
