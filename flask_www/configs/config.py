@@ -54,12 +54,12 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     print("product")
     MYSQL_DATABASE_USER = 'root'
-    MYSQL_DATABASE_PASSWORD = 'moljin@981011'
+    MYSQL_DATABASE_PASSWORD = 'moljin$981011'
     MYSQL_DATABASE_DB = 'fdk_project0.2.1'
     MYSQL_DATABASE_HOST = '112.186.157.226'
     MYSQL_DATABASE_PORT = '56033'
 
-    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_DATABASE_USER}:{MYSQL_DATABASE_PASSWORD}@{MYSQL_DATABASE_HOST}:{MYSQL_DATABASE_PORT}/{MYSQL_DATABASE_DB}?charset=utf8"
+    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_DATABASE_USER}:@{MYSQL_DATABASE_HOST}:{MYSQL_DATABASE_PORT}/{MYSQL_DATABASE_DB}?charset=utf8"
 
 
 class TestingConfig(Config):
