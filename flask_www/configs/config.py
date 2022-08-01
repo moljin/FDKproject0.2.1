@@ -31,7 +31,9 @@ class Config(object):
 
 
 class DevelopmentConfig(Config):
+    print("develop")
     DEBUG = True
+    print("develop2")
     dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
     print("dotenv_path", dotenv_path)
     load_dotenv(dotenv_path)
@@ -52,6 +54,7 @@ class DevelopmentConfig(Config):
 
 
 class ProductionConfig(Config):
+    print("product")
     MYSQL_DATABASE_USER = 'root'
     MYSQL_DATABASE_PASSWORD = 'moljin@981011'
     MYSQL_DATABASE_DB = 'fdkproject0.2'
