@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+
+  flask_www:
+    container_name: flask_www
+    volumes:
+      - type: volume
+        source: static-volume
+        target: /home/moljin/FDKproject0.1/flask/static
+    restart: always
+    build: /home/moljin/FDKproject0.1/flask
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    command: gunicorn -w 1 -b 0.0.0.0:5000 app:app
+
+  nginx:
+    container_name: nginx
+    volumes:
+      - type: volume
+        source: static-volume
+        target: /data/static
+    restart: always
+    build: /home/moljin/FDKproject0.1/nginx
+    ports:
+      - "50808:80"
+    depends_on:
+      - flask_www
+
+volumes:
+  static-volume:
+  mysqldb-volume:
