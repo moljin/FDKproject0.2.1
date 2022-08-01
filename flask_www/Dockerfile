@@ -16,8 +16,9 @@ EXPOSE 5000
 # flask 폴더 안에 있는 app.py실행
 #CMD ["python3", "flask/app.py", "--host=0.0.0.0"]
 
-# gunicorn에서 app:app를 사용하기 위해서 WORKDIR를 app.py가 위치한 경로로 다시 지정
-WORKDIR /home/moljin/FDKproject0.2.1/flask_www/
+""" #### gunicorn에서 app:app를 사용하기 위해서 WORKDIR를 app.py가 위치한 경로로 다시 지정 #### """
+WORKDIR /home/moljin/FDKproject0.2.1/
+#WORKDIR /home/moljin/FDKproject0.2.1/flask_www/
 # nginx와 연동하면서....이거는 죽였다.
 #CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:5000", "app:app"]
 
