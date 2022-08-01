@@ -17,19 +17,21 @@ migrate = Migrate()
 def create_app(config_name=None):
     application = Flask(__name__, template_folder=TEMPLATE_ROOT, static_folder=STATIC_ROOT)
 
-    # if not config_name:
-    #     print("application.config['DEBUG']", application.config['DEBUG'])
-    #     if application.config['DEBUG']:
-    #         print("if application.config['DEBUG']")
-    #         config_name = DevelopmentConfig()
-    #     else:
-    #         print("else")
-    #         config_name = ProductionConfig()
-    print("os.environ['FLASK_ENV']", os.environ['FLASK_ENV'])
-    if os.environ['FLASK_ENV'] == 'development':
-        config_name = DevelopmentConfig()
-    else:
-        config_name = ProductionConfig()
+    if not config_name:
+        print("application.config['DEBUG']", application.config['DEBUG'])
+        if application.config['DEBUG']:
+            print("if application.config['DEBUG']")
+            config_name = DevelopmentConfig()
+        else:
+            print("else")
+            config_name = ProductionConfig()
+
+    # print("os.environ['FLASK_ENV']", os.environ['FLASK_ENV'])
+    # if os.environ['FLASK_ENV'] == 'development':
+    #     config_name = DevelopmentConfig()
+    # else:
+    #     config_name = ProductionConfig()
+
     application.config.from_object(config_name)
 
     db.init_app(application)
