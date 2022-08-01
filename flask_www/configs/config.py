@@ -7,13 +7,11 @@ from dotenv import load_dotenv
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("BASE_DIR", BASE_DIR)
 TEMPLATE_ROOT = os.path.join(BASE_DIR, 'templates')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
-print("def development_env(): dotenv_path", dotenv_path)
 load_dotenv(dotenv_path)
 
 
@@ -38,15 +36,7 @@ class Config(object):
 
 
 class DevelopmentConfig(Config):
-    print("develop")
     DEBUG = True
-    print("develop2")
-
-    # dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
-    # print("dotenv_path", dotenv_path)
-    # load_dotenv(dotenv_path)
-    # flask_env = os.environ.get("FLASK_ENV")
-    # print("flask_env==== :::: ", flask_env)
 
     SEND_FILE_MAX_AGE_DEFAULT = 1  # 개발환경에서 캐시 파일 1초마다 reload 할 수 있도록 한거다.
     TEMPLATES_AUTO_RELOAD = True  # DEBUG = True이면 자동으로 켜진다. 굳이 안써도 된다면서.....
