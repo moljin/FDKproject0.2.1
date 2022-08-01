@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+<section class="section-constainer">
+<div>
+    <form method="POST"  enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+        <div>
+            {{ form.image_path }}
+        </div>
+    <div>
+        {{ form.subject }}
+
+    </div>
+    <div>
+        {{ form.content }}
+
+    </div>
+        <button class="btn btn-primary mt-3" type="submit">Submit</button>
+    </form>
+</div>
+    <a href="{{ url_for("commons.index") }}"><button>commons.index</button></a>
+</section>
+</body>
+</html>

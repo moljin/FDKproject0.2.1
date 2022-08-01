@@ -7,7 +7,7 @@ services:
     volumes:
       - type: volume
         source: mysqldb-volume
-        target: /home/moljin/FDKproject0.2.1/flask_www/mysql
+        target: /var/lib/mysql
     restart: always
     command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --default-authentication-plugin=mysql_native_password
     environment:

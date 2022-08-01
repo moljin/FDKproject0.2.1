@@ -42,9 +42,9 @@ class DevelopmentConfig(Config):
     TEMPLATES_AUTO_RELOAD = True  # DEBUG = True이면 자동으로 켜진다. 굳이 안써도 된다면서.....
     WTF_CSRF_ENABLED = True  # False로 하면 좋으나 체크하기위해 True
 
-    MYSQL_DATABASE_USER = 'root2'
+    MYSQL_DATABASE_USER = 'root'
     MYSQL_DATABASE_PASSWORD = '981011'
-    MYSQL_DATABASE_DB = 'fdkproject0.2'
+    MYSQL_DATABASE_DB = 'fdk_project0.2.1'
     MYSQL_DATABASE_HOST = 'localhost'
     MYSQL_DATABASE_PORT = '3306'
 
@@ -55,7 +55,7 @@ class ProductionConfig(Config):
     print("product")
     MYSQL_DATABASE_USER = 'root'
     MYSQL_DATABASE_PASSWORD = 'moljin@981011'
-    MYSQL_DATABASE_DB = 'fdkproject0.2'
+    MYSQL_DATABASE_DB = 'fdk_project0.2.1'
     MYSQL_DATABASE_HOST = '112.186.157.226'
     MYSQL_DATABASE_PORT = '56033'
 
