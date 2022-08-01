@@ -12,12 +12,17 @@ TEMPLATE_ROOT = os.path.join(BASE_DIR, 'templates')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-def development_env():
-    dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
-    print("def development_env(): dotenv_path", dotenv_path)
-    load_dotenv(dotenv_path)
-    flask_env = os.environ.get("FLASK_ENV")
-    return flask_env
+dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
+print("def development_env(): dotenv_path", dotenv_path)
+load_dotenv(dotenv_path)
+
+
+# def development_env():
+#     dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
+#     print("def development_env(): dotenv_path", dotenv_path)
+#     load_dotenv(dotenv_path)
+#     flask_env = os.environ.get("FLASK_ENV")
+#     return flask_env
 
 
 class Config(object):

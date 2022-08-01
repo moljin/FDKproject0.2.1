@@ -8,7 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_www.configs.config import TEMPLATE_ROOT, STATIC_ROOT, DevelopmentConfig, ProductionConfig
 from flask_www.configs.routes import routes_init
 
-
 csrf = CSRFProtect()
 db = SQLAlchemy()
 migrate = Migrate()
@@ -17,6 +16,7 @@ migrate = Migrate()
 def create_app(config_name=None):
     application = Flask(__name__, template_folder=TEMPLATE_ROOT, static_folder=STATIC_ROOT)
 
+    # is_gunicorn = "gunicorn" in os.environ.get("SERVER_SOFTWARE", "")
     if not config_name:
         print("application.config['DEBUG']", application.config['DEBUG'])
         if application.config['DEBUG']:
@@ -25,6 +25,13 @@ def create_app(config_name=None):
         else:
             print("else")
             config_name = ProductionConfig()
+    #
+    #     print("is_gunicorn", is_gunicorn)
+    #
+    #     if is_gunicorn is False:
+    #         config_name = DevelopmentConfig()
+    #     else:
+    #         config_name = ProductionConfig()
 
     # print("os.environ['FLASK_ENV']", os.environ['FLASK_ENV'])
     # if os.environ['FLASK_ENV'] == 'development':
