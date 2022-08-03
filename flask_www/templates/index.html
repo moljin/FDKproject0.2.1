@@ -28,7 +28,7 @@ Hello World!33dfsd <br>
                                 <td>
                                     <a href="{{ url_for('articles.article_detail', _id=tm.id) }}">{{ tm.subject }}</a>
                                 </td>
-                                <td>{{ tm.created_at|ko_datetime }}</td>
+                                <td>{{ tm.created_at|daytime("full") }}</td>
                             </tr>
                         {% endfor %}
                     {% else %}
