@@ -171,5 +171,5 @@ cython_debug/
 # 추가
 .idea/
 migrations/
-/media/user_images/
-/static/media/user_images/
+media/
+static/media/
