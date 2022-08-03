@@ -29,7 +29,8 @@ class Config(object):
 
     SECRET_KEY = 'thisissecretkey'
     SESSION_COOKIE_NAME = 'FDK_project0.2.1'
-    TIMEZONE = datetime.datetime.now(timezone('Asia/Seoul'))
+    # TIMEZONE = datetime.datetime.now(timezone('Asia/Seoul'))
+    TIMEZONE = 'Asia/Seoul'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
