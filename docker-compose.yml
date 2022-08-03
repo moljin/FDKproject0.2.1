@@ -9,13 +9,18 @@ services:
       - type: volume
         source: mysqldb-volume
         target: /var/lib/mysql
+    secrets:
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
     restart: always
     command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_USER: moljin
-      MYSQL_PASSWORD: moljin!981011
       MYSQL_DATABASE: fdk_project0.2.1
-      MYSQL_ROOT_PASSWORD: moljin!981011
+      MYSQL_USER: moljin
+      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
+#      MYSQL_PASSWORD: moljin!981011
+#      MYSQL_ROOT_PASSWORD: moljin!981011
 #      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
       TZ: Asia/Seoul
     ports:
@@ -30,6 +35,9 @@ services:
 #      - type: volume
 #        source: media-volume
 #        target: /home/moljin/FDKproject0.2.1/flask_www/media
+    secrets:
+      - SECRET_KEY
+      - MYSQL_ROOT_PASSWORD
     restart: always
     build: /home/moljin/FDKproject0.2.1/flask_www
     ports:

@@ -53,3 +53,4 @@ def save_file(now, file):
         return relative_path, upload_path   # 템플릿단에서는 relative_path가 사용된다. static 폴더가 있어야 찾아간다.
     else:
         abort(400)
+
