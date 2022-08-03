@@ -5,7 +5,7 @@ services:
     image: mysql:8.0.29
     container_name: mysqldb
     volumes:
-      - "/etc/timezone:/etc/timezone:ro"
+#      - "/etc/timezone:/etc/timezone:ro"
       - type: volume
         source: mysqldb-volume
         target: /var/lib/mysql
@@ -17,7 +17,7 @@ services:
       MYSQL_DATABASE: fdk_project0.2.1
       MYSQL_ROOT_PASSWORD: moljin&981011
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-      TZ: Asia/Seoul
+#      TZ: Asia/Seoul
     ports:
       - "3306:3306"
 
