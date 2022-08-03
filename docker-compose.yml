@@ -15,7 +15,7 @@ services:
       MYSQL_USER: moljin
       MYSQL_PASSWORD: 981011
       MYSQL_DATABASE: fdk_project0.2.1
-      MYSQL_ROOT_PASSWORD: moljin&981011
+      MYSQL_ROOT_PASSWORD: moljin@981011
 #      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
       TZ: Asia/Seoul
     ports:
