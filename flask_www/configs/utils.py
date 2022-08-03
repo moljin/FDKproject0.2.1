@@ -2,7 +2,7 @@ import os
 
 from flask import g, request, abort
 
-from flask_www.configs.config import BASE_DIR
+from flask_www.configs.config import BASE_DIR, NOW
 
 
 def allowed_file(filename):
@@ -31,11 +31,11 @@ def base_file_path(filename):
     from flask_www.configs import app
     base_relative_path = "static/media/user_images/{request_path}/{year}/{month}/{day}/{filename}".format(
         request_path=request.path.split('/')[2],  # /로 나누고 2번째(첫번째는 아무값도 없다.)
-        year=app.config["TIMEZONE"].year,
-        month=app.config["TIMEZONE"].month,
-        day=app.config["TIMEZONE"].day,
+        year=NOW.year,
+        month=NOW.month,
+        day=NOW.day,
         random_word=random_word(10),
-        filename=filename_format(app.config["TIMEZONE"], filename),
+        filename=filename_format(NOW, filename),
     )
     return base_relative_path
 

@@ -2,13 +2,14 @@ import datetime
 import os
 from os.path import join, dirname
 
-from pytz import timezone
 from dotenv import load_dotenv
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_ROOT = os.path.join(BASE_DIR, 'templates')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+NOW = datetime.datetime.now()
 
 
 dotenv_path = join(dirname(__file__), '.env')  # Path to .env file

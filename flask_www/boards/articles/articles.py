@@ -3,6 +3,7 @@ from flask import Blueprint, request, redirect, url_for, render_template
 from flask_www.boards.articles.forms import ArticleForm
 from flask_www.boards.articles.models import Article
 from flask_www.configs import db
+from flask_www.configs.config import NOW
 from flask_www.configs.utils import save_file
 
 NAME = 'articles'
@@ -20,7 +21,7 @@ def article_create():
         new_article = Article()
         from flask_www.configs import app
         if image_file:
-            relative_path, _ = save_file(app.config["TIMEZONE"], image_file)
+            relative_path, _ = save_file(NOW, image_file)
             new_article.image_path = relative_path
         new_article.subject = subject
         new_article.content = content
