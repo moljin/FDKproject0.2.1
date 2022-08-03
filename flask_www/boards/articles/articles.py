@@ -3,6 +3,7 @@ from flask import Blueprint, request, redirect, url_for, render_template
 from flask_www.boards.articles.forms import ArticleForm
 from flask_www.boards.articles.models import Article
 from flask_www.configs import db
+from flask_www.configs.utils import save_file
 
 NAME = 'articles'
 articles_bp = Blueprint(NAME, __name__, url_prefix='/boards/article')
@@ -12,12 +13,15 @@ articles_bp = Blueprint(NAME, __name__, url_prefix='/boards/article')
 def article_create():
     form = ArticleForm()
     if request.method == 'POST':# and form.validate_on_submit():
-        image_path = form.image_path.data
+        image_file = form.image_path.data
         subject = form.subject.data
         content = request.form.get('content')
 
         new_article = Article()
-        new_article.image_path = image_path
+        from flask_www.configs import app
+        if image_file:
+            relative_path, _ = save_file(app.config["TIMEZONE"], image_file)
+            new_article.image_path = relative_path
         new_article.subject = subject
         new_article.content = content
 

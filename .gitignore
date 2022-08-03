@@ -171,3 +171,4 @@ cython_debug/
 # 추가
 .idea/
 migrations/
+media/

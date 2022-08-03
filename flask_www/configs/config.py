@@ -34,6 +34,8 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 class DevelopmentConfig(Config):
     DEBUG = True

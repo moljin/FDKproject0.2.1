@@ -25,6 +25,9 @@ services:
       - type: volume
         source: static-volume
         target: /home/moljin/FDKproject0.2.1/flask_www/static
+      - type: volume
+        source: media-volume
+        target: /home/moljin/FDKproject0.2.1/flask_www/media
     restart: always
     build: /home/moljin/FDKproject0.2.1/flask_www
     ports:
@@ -40,6 +43,9 @@ services:
       - type: volume
         source: static-volume
         target: /data/static
+      - type: volume
+        source: media-volume
+        target: /data/media
     restart: always
     build: /home/moljin/FDKproject0.2.1/nginx
     ports:
@@ -49,4 +55,5 @@ services:
 
 volumes:
   static-volume:
+  media-volume:
   mysqldb-volume:

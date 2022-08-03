@@ -41,6 +41,8 @@ def create_app(config_name=None):
 
     application.config.from_object(config_name)
 
+    csrf.init_app(application)
+
     db.init_app(application)
     if application.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'):
         migrate.init_app(application, db, render_as_batch=True)
