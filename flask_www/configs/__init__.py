@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from flask_sqlalchemy import SQLAlchemy
 
+from flask_www.configs.apps import related_app
 from flask_www.configs.config import TEMPLATE_ROOT, STATIC_ROOT, DevelopmentConfig, ProductionConfig
 from flask_www.configs.routes import routes_init
 
@@ -51,6 +52,7 @@ def create_app(config_name=None):
     # from flask_www.boards.articles import models
 
     routes_init(application)
+    related_app(application)
 
     return application
 

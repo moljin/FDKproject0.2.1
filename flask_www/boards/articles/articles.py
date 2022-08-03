@@ -32,7 +32,7 @@ def article_create():
 
 
 @articles_bp.route('/detail/<int:_id>', methods=['GET'])
-def profile_detail(_id):
+def article_detail(_id):
     # board = TestBoard.query.get_or_404(_id)
     article_obj = db.session.query(Article).filter_by(id=_id).first()
     return render_template('boards/articles/article_detail.html', article=article_obj)

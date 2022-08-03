@@ -10,6 +10,34 @@
 Hello World!33dfsd <br>
     {{ dbs }} <br>
     <a href="{{ url_for("articles.article_create") }}"><button>article_create</button></a>
+    <hr>
+    <table class="table">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성일시</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if tms %}
+                        {% for tm in tms %}
+                            <tr>
+                                {#                                <td>{{ loop.index }}</td>#}
+                                <td>{{ tm.id }}</td>
+                                <td>
+                                    <a href="{{ url_for('articles.article_detail', _id=tm.id) }}">{{ tm.subject }}</a>
+                                </td>
+                                <td>{{ tm.created_at|ko_datetime }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3">Article이 없습니다.</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
 </section>
 </body>
 </html>
