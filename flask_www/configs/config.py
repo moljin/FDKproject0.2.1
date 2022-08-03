@@ -65,21 +65,21 @@ MYSQL_ROOT_PASSWORD = ''
 
 
 class ProductionConfig(Config):
-    global MYSQL_ROOT_PASSWORD
-    try:
-        if read_secret('SECRET_KEY'):
-            SECRET_KEY = read_secret('SECRET_KEY')  # 'thisissecretkey'
-    except Exception as e:
-        print(e)
-    # SECRET_KEY = 'thisissecretkey'
+    # global MYSQL_ROOT_PASSWORD
+    # try:
+    #     if read_secret('SECRET_KEY'):
+    #         SECRET_KEY = read_secret('SECRET_KEY')  # 'thisissecretkey'
+    # except Exception as e:
+    #     print(e)
+    SECRET_KEY = 'thisissecretkey'
     print("product")
     MYSQL_ROOT_USER = 'root'
-    try:
-        if read_secret('MYSQL_ROOT_PASSWORD'):
-            MYSQL_ROOT_PASSWORD = read_secret('MYSQL_ROOT_PASSWORD')  # 'thisissecretkey'
-    except Exception as e:
-        print(e)
-    # MYSQL_ROOT_PASSWORD = 'moljin!981011'
+    # try:
+    #     if read_secret('MYSQL_ROOT_PASSWORD'):
+    #         MYSQL_ROOT_PASSWORD = read_secret('MYSQL_ROOT_PASSWORD')  # 'thisissecretkey'
+    # except Exception as e:
+    #     print(e)
+    MYSQL_ROOT_PASSWORD = 'moljin!981011'
     MYSQL_DATABASE = 'fdk_project0.2.1'
     MYSQL_HOST = '112.186.157.226'
     MYSQL_PORT = '56033'
