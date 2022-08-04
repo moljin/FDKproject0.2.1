@@ -31,7 +31,7 @@ services:
 
   # nginx.conf 의 proxy_pass http://flask_www:5000; 에 사용
   flask_www:
-    image: 	fdkproject021_flask_www
+    image: 	flask_www:021.2
     container_name: flask_www
     volumes:
       - type: volume
