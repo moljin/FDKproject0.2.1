@@ -29,6 +29,7 @@ def base_file_path(filename):
     static 앞에 / 을 넣으면 이미지가 저장이 안된다. path 는 만들어지지만...."""
     # base_relative_path = "{request_path}/{year}/{month}/{day}/{user_id}/{username}/{filename}".format(
     from flask_www.configs import app
+    # base_relative_path = "media/user_images/{request_path}/{year}/{month}/{day}/{filename}".format(
     base_relative_path = "static/media/user_images/{request_path}/{year}/{month}/{day}/{filename}".format(
         request_path=request.path.split('/')[2],  # /로 나누고 2번째(첫번째는 아무값도 없다.)
         year=NOW.year,

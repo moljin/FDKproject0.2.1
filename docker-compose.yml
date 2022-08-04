@@ -31,20 +31,20 @@ services:
 
   # nginx.conf 의 proxy_pass http://flask_www:5000; 에 사용
   flask_www:
-    image: 	flask_www:021.2
+    image: 	flask_www:021.3
     container_name: flask_www
+    restart: always
+    build: /home/moljin/FDKproject0.2.1/flask_www
     volumes:
       - type: volume
         source: static-volume
-        target: /home/moljin/FDKproject0.2.1/flask_www/static
-#      - type: volume
-#        source: media-volume
-#        target: /home/moljin/FDKproject0.2.1/flask_www/media
-#    secrets:
-#      - SECRET_KEY
-#      - MYSQL_ROOT_PASSWORD
-    restart: always
-    build: /home/moljin/FDKproject0.2.1/flask_www
+        target: /home/moljin/FDKproject0.2.1/flask_www/static/statics
+      - type: volume
+        source: media-volume
+        target: /home/moljin/FDKproject0.2.1/flask_www/static/media
+    #    secrets:
+    #      - SECRET_KEY
+    #      - MYSQL_ROOT_PASSWORD
     ports:
       - "5000:5000"
     depends_on:
@@ -61,9 +61,9 @@ services:
       - type: volume
         source: static-volume
         target: /data/static
-#      - type: volume
-#        source: media-volume
-#        target: /data/media
+      - type: volume
+        source: media-volume
+        target: /data/media
     restart: always
     build: /home/moljin/FDKproject0.2.1/nginx
     ports:
@@ -75,7 +75,7 @@ services:
 
 volumes:
   static-volume:
-#  media-volume:
+  media-volume:
   mysqldb-volume:
 
 networks:
