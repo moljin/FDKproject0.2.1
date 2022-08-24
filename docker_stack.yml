@@ -30,7 +30,8 @@ services:
       - my_network
 
   flask_www:
-    image: 	fdkproject021_flask_www
+#    image: 	fdkproject021_flask_www
+    image: flask_www:021.3
     container_name: flask_www
     volumes:
       - type: volume

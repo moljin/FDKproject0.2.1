@@ -4,7 +4,7 @@ def related_app(app):
         if _type == "full":
             _format = '%Y-%m-%d %H:%M:%S %p'
         elif _type == "medium":
-            _format = '%Y-%m-%d %H:%M'
+            _format = '%Y-%m-%d %H:%M %p'
         else:
             _format = '%Y-%m-%d'
         return value.strftime(_format)
